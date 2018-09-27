@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthenticationService } from '../../service/authentication.service';
 
 @Component({
   selector: 'app-home',
@@ -6,10 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-
-  constructor() { }
+  public email: string;
+  public password: string;
+  constructor(public authenticationService: AuthenticationService) { }
 
   ngOnInit() {
   }
 
+  // METODO
+  onSubmitAddUser () {
+    this.authenticationService.register(this.email, this.password);
+  }
 }
