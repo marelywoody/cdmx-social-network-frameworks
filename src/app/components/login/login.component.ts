@@ -28,4 +28,22 @@ export class LoginComponent implements OnInit {
       console.log(err);
     });
   }
+
+  loginGoogle() {
+    this.authentication.loginGoogle()
+    .then((res) => {
+      this.router.navigate(['/postWall'])
+    }).catch((err) => {
+      console.log(err);
+    });
+  }
+
+  loginFacebook() {
+    this.authentication.loginFacebook()
+    .then((res) => {
+      this.router.navigate(['/postWall']);
+    }).catch((err) => {
+      console.log(err);
+    });
+  }
 }
