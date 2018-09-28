@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from '../../services/authentication.service'
-
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -9,9 +9,23 @@ import { AuthenticationService } from '../../services/authentication.service'
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  public email: string;
+  public password: string;
+
+  constructor(
+    public authentication: AuthenticationService,
+    public router: Router
+    ) { }
 
   ngOnInit() {
   }
-
+  // METODOS
+  loginUser() {
+    this.authentication.login(this.email, this.password)
+    .then((res) => {
+      this.router.navigate(['/postWall']);
+    }).catch((err) => {
+      console.log(err);
+    });
+  }
 }

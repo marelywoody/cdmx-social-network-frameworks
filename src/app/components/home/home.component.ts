@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from '../../services/authentication.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -9,9 +10,12 @@ import { AuthenticationService } from '../../services/authentication.service';
 export class HomeComponent implements OnInit {
 
   public email: string;
-  public password :string;
+  public password: string;
 
-  constructor(public authenticationService: AuthenticationService) { }
+  constructor(
+    public authenticationService: AuthenticationService,
+    public router: Router
+    ) { }
 
   ngOnInit() {
   }
@@ -20,8 +24,7 @@ export class HomeComponent implements OnInit {
   registerUser() {
     this.authenticationService.register(this.email, this.password)
     .then((res) => {
-      console.log(res);
-      console.log('Datos');
+      this.router.navigate(['/postWall']);
     }).catch((err) => {
       console.log(err);
     });
