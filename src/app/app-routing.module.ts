@@ -1,24 +1,26 @@
-import { NgModule, Component } from '@angular/core';
-// import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 
-import { LoginComponent } from './component/login/login.component';
-import { HomeComponent } from './component/home/home.component';
-import { MuroComponent } from './component/muro/muro.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { HomeComponent } from './components/home/home.component';
+import { LoginComponent } from './components/login/login.component';
+import { PostWallComponent } from './components/post-wall/post-wall.component';
 
 const routes: Routes = [
-  {path:'', component: HomeComponent},
+  {path: 'navbar', component: NavbarComponent},
+  {path: '', component: HomeComponent},
   {path: 'login', component: LoginComponent},
-  {path:'muro', component: MuroComponent}
+  {path: 'postWall', component: PostWallComponent}
 ];
 
 @NgModule({
   imports: [
-    // CommonModule
+    CommonModule,
     RouterModule.forRoot(routes)
   ],
-  exports: [ 
-    RouterModule 
+  exports: [
+    RouterModule
   ],
   declarations: []
 })

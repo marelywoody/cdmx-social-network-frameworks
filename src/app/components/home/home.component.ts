@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthenticationService } from '../../service/authentication.service';
+import { AuthenticationService } from '../../services/authentication.service';
 
 @Component({
   selector: 'app-home',
@@ -7,15 +7,24 @@ import { AuthenticationService } from '../../service/authentication.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+
   public email: string;
-  public password: string;
+  public password :string;
+
   constructor(public authenticationService: AuthenticationService) { }
 
   ngOnInit() {
   }
+  // METODOS
 
-  // METODO
-  onSubmitAddUser () {
-    this.authenticationService.register(this.email, this.password);
+  registerUser() {
+    this.authenticationService.register(this.email, this.password)
+    .then((res) => {
+      console.log(res);
+      console.log('Datos');
+    }).catch((err) => {
+      console.log(err);
+    });
   }
+
 }
