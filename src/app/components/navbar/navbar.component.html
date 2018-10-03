@@ -1,5 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand mb-0 h1 offset-5" id="navbar" href="#" routerLink="/">ZoryaColect<span class="sr-only">(current)</span></a>
+  <a class="navbar-brand mb-0 h1 offset-5" id="navbar" *ngIf="!isLogin" href="#" routerLink="/">ZoryaColect<span class="sr-only">(current)</span></a>
+  <a class="navbar-brand mb-0 h1 offset-5" id="navbar" *ngIf="isLogin" href="#" routerLink="/postWall">ZoryaColect<span class="sr-only">(current)</span></a>
 <div class="navbar offset-4" id="navbarNav">
   <ul class="navbar-nav mx-auto">
     <li class="nav-item" *ngIf="!isLogin">
