@@ -1,0 +1,15 @@
+.btnFacebook, .btnGoogle {
+  font-size: 27px;
+  margin-left: 10px;
+  width: 100px;
+}
+
+.btnFacebook {
+  color: #ffffff;
+  background-color: #3f5c9a;
+}
+
+.btnGoogle {
+  color: #efede6;
+  background-color: #dd5347;
+}

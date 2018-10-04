@@ -11,9 +11,9 @@
         <input type="password" id="password1" class="form-control" name="password"  [(ngModel)]="password" placeholder="Contraseña">
       </div>
       <input type="button" class="btn btn-primary offset-5 btn-lg" (click)="loginUser()" value="Entrar">
-      <div>
-        <button (click)="loginGoogle()" style="color:#dd5347"><i class="fab fa-google-plus" style="font-size:48px"></i></button>
-        <button (click)="loginFacebook()"><i class="fab fa-facebook" style="font-size:48px;color:#3f5c9a"></i></button>
+      <div class="offset-4 mt-3">
+        <button (click)="loginGoogle()" class="btn btnGoogle"><i class="fab fa-google-plus"></i></button>
+        <button (click)="loginFacebook()" class="btn btnFacebook"><i class="fab fa-facebook"></i></button>
       </div>
     </form>    
   </div>
