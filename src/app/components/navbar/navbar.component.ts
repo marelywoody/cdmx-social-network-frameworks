@@ -12,6 +12,7 @@ export class NavbarComponent implements OnInit {
   public nameUser: string;
   public emailUser: string;
   public photoUser: string;
+  public userId: string;
 
   constructor(
     public authentication: AuthenticationService
@@ -22,6 +23,7 @@ export class NavbarComponent implements OnInit {
       if (auth) {
         this.isLogin = true;
         this.emailUser = auth.email;
+        this.userId = auth.uid;
         if (!auth.displayName && !auth.photoURL) {
           this.nameUser = 'User';
           this.photoUser = 'https://raw.githubusercontent.com/marelywoody/cdmx-social-network-frameworks/master/src/assets/images/icono.png';

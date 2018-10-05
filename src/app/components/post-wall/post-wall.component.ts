@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from '../../services/authentication.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-post-wall',
@@ -12,9 +13,11 @@ export class PostWallComponent implements OnInit {
   public nameUser: string;
   public emailUser: string;
   public photoUser: string;
+  public userId: string;
 
   constructor(
-    public authentication: AuthenticationService
+    public authentication: AuthenticationService,
+    public router: Router
     ) { }
 
   ngOnInit() {
@@ -24,8 +27,10 @@ export class PostWallComponent implements OnInit {
         this.nameUser = auth.displayName;
         this.emailUser = auth.email;
         this.photoUser = auth.photoURL;
+        this.userId = auth.uid;
       } else {
         this.isLogin = false;
+        this.router.navigate(['/'])
       }
     });
   }
