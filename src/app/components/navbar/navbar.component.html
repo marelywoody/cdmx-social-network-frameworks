@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div>
+  <div *ngIf="isLogin">
     <img  class="rounded-circle" id="photo" src="{{photoUser}}">
     <strong >{{nameUser}}</strong>
   </div>
