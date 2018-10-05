@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthenticationService } from '../../services/authentication.service';
 import { Router } from '@angular/router';
+
+import { AuthenticationService } from '../../services/authentication.service';
+import { PostContentService } from '../../services/post-content.service';
+import { Post } from '../../models/post';
 
 @Component({
   selector: 'app-post-wall',
@@ -15,12 +18,25 @@ export class PostWallComponent implements OnInit {
   public photoUser: string;
   public userId: string;
 
+  post : Post = {
+    id:'',
+    datePublic: '',
+    userId: '',
+    userName: '',
+    descriptionPost:''
+  }
+
   constructor(
     public authentication: AuthenticationService,
-    public router: Router
+    public router: Router,
+    public postContentService: PostContentService,
     ) { }
 
   ngOnInit() {
+    this.loginAuth();
+  }
+
+  loginAuth() {
     this.authentication.stateAuth().subscribe( auth => {
       if (auth) {
         this.isLogin = true;
@@ -35,4 +51,13 @@ export class PostWallComponent implements OnInit {
     });
   }
 
+  onSavePost({value}:{value:Post}){
+    value.datePublic = (new Date()).getTime();
+    this.authentication.stateAuth().subscribe( user => {
+      value.userId = user.uid;
+      value.userName = user.displayName;
+      this.postContentService.addPost(value);
+    });
+    document.getElementById('description').value = '';
+  }
 }

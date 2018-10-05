@@ -1,6 +1,11 @@
 <div *ngIf="isLogin" >
-  <p>
-    post-wall works!
-  </p>
+  <div class="card col-6">
+    <form #postDescription="ngForm">
+      <div>
+        <textarea name="postDescription" id="description"  [(ngModel)]="post.posDescription" cols="70" rows="10"></textarea>
+      </div>
+      <button class="btn btn-primary offset-5" (click)="onSavePost(postDescription)">Postear</button>
+    </form>
+  </div>
 </div>
 
