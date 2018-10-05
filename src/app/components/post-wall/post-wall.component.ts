@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 import { AuthenticationService } from '../../services/authentication.service';
 import { PostContentService } from '../../services/post-content.service';
@@ -17,6 +17,8 @@ export class PostWallComponent implements OnInit {
   public emailUser: string;
   public photoUser: string;
   public userId: string;
+  public posts: Post[];
+  public postId: string;
 
   post : Post = {
     id:'',
@@ -30,10 +32,15 @@ export class PostWallComponent implements OnInit {
     public authentication: AuthenticationService,
     public router: Router,
     public postContentService: PostContentService,
+    public reute: ActivatedRoute
     ) { }
 
   ngOnInit() {
     this.loginAuth();
+    this.allPost();
+    this.onCheckUserLogin();
+    this.onClickDelete();
+    this.getDetailsPost();
   }
 
   loginAuth() {
@@ -58,6 +65,30 @@ export class PostWallComponent implements OnInit {
       value.userName = user.displayName;
       this.postContentService.addPost(value);
     });
-    // document.getElementById('description').value = '';
+  }
+
+  allPost(){
+    this.postContentService.getAllPosts().subscribe(posts => this.posts = posts);
+  }
+
+  onCheckUserLogin(){
+  this.authentication.stateAuth().subscribe(user => {
+    if(user){
+      this.userId = user.uid;
+    }
+  })
+}
+
+ getDetailsPost(){
+  this.postId = this.reute.snapshot.params['id'];
+  this.postContentService.getPost(this.postId).subscribe(post => {
+    this.post = post;
+  });
+}
+
+onClickDelete(){
+  if(confirm('¡Seguro que desea eliminarlo?')){
+      this.postContentService.deletePost(this.post);
+    }
   }
 }
