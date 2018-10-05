@@ -58,6 +58,6 @@ export class PostWallComponent implements OnInit {
       value.userName = user.displayName;
       this.postContentService.addPost(value);
     });
-    document.getElementById('description').value = '';
+    // document.getElementById('description').value = '';
   }
 }
