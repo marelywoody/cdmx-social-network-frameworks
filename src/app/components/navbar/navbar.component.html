@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div *ngIf="isLogin">
-    <img  class="rounded-circle" id="photo" src="{{photoUser}}">
+    <img  *ngIf="isLogin" class="rounded-circle" id="photo" src="{{photoUser}}">
     <strong >{{nameUser}}</strong>
   </div>
   <a class="navbar-brand mb-0 h1 offset-5" id="navbar" *ngIf="!isLogin" href="#" routerLink="/">ZoryaColect<span class="sr-only">(current)</span></a>
