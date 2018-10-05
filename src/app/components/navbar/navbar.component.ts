@@ -21,9 +21,14 @@ export class NavbarComponent implements OnInit {
     this.authentication.stateAuth().subscribe( auth => {
       if (auth) {
         this.isLogin = true;
-        this.nameUser = auth.displayName;
         this.emailUser = auth.email;
-        this.photoUser = auth.photoURL;
+        if (!auth.displayName && !auth.photoURL) {
+          this.nameUser = 'User';
+          this.photoUser = '';
+        } else {
+          this.nameUser = auth.displayName;
+          this.photoUser = auth.photoURL;
+        }
       } else {
         this.isLogin = false;
       }
