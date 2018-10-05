@@ -24,7 +24,7 @@ export class NavbarComponent implements OnInit {
         this.emailUser = auth.email;
         if (!auth.displayName && !auth.photoURL) {
           this.nameUser = 'User';
-          this.photoUser = '../../../assets/images/user.png';
+          this.photoUser = 'https://raw.githubusercontent.com/marelywoody/cdmx-social-network-frameworks/master/src/assets/images/icono.png';
         } else {
           this.nameUser = auth.displayName;
           this.photoUser = auth.photoURL;
