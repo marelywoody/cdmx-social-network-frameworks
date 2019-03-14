@@ -10,11 +10,13 @@
         <label for="password1">Contraseña</label>
         <input type="password" id="password1" class="form-control" name="password"  [(ngModel)]="password" placeholder="Contraseña">
       </div>
-      <input type="button" class="btn btn-primary offset-5 btn-lg" (click)="loginUser()" value="Entrar">
-      <div class="offset-4 mt-3">
+      <input type="button" id="button" class="btn btn-primary offset-5 btn-lg" (click)="loginUser()" value="Entrar">
+    </form>    
+    <div class="row">
+      <div class="col" id="button-login">
         <button (click)="loginGoogle()" class="btn btnGoogle"><i class="fab fa-google-plus"></i></button>
         <button (click)="loginFacebook()" class="btn btnFacebook"><i class="fab fa-facebook"></i></button>
       </div>
-    </form>    
+    </div>
   </div>
 </div>

@@ -47,6 +47,7 @@ export class PostWallComponent implements OnInit {
     this.authentication.stateAuth().subscribe( auth => {
       if (auth) {
         this.isLogin = true;
+        this.router.navigate(['/postWall'])
         this.nameUser = auth.displayName;
         this.emailUser = auth.email;
         this.photoUser = auth.photoURL;
@@ -87,8 +88,5 @@ export class PostWallComponent implements OnInit {
 }
 
 onClickDelete(){
-  if(confirm('¡Seguro que desea eliminarlo?')){
-      this.postContentService.deletePost(this.post);
-    }
   }
 }

@@ -14,6 +14,7 @@ import { PostContentService } from './services/post-content.service';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireStorageModule } from '@angular/fire/storage';
 import { environment } from '../environments/environment';
 import { Post } from './models/post';
 
@@ -31,7 +32,8 @@ import { Post } from './models/post';
     FormsModule,
     AngularFireAuthModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    AngularFireStorageModule
   ],
   providers: [
     AuthenticationService, PostContentService

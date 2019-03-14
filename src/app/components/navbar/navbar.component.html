@@ -1,11 +1,17 @@
 <nav id="nav-bar" class="navbar navbar-expand-lg">
-  <div *ngIf="isLogin" class="navbar-item ml-auto">
-    <img  *ngIf="isLogin" class="rounded-circle" id="photo" src="{{photoUser}}">
-    <strong >{{nameUser}}</strong>
+  <div *ngIf="isLogin" class="container navbar-item ml-auto">
+    <div class="row">
+      <div class="col">
+        <img *ngIf="isLogin" class="rounded-circle" id="photo" src="{{photoUser}}">
+      </div>
+    <div class="col">
+      <strong>{{nameUser}}</strong> 
+    </div>
+    </div>
   </div>
-  <a class="navbar-brand mb-0 h1 offset-5" id="navbar" *ngIf="!isLogin" href="#" routerLink="/">ZoryaColect<span class="sr-only">(current)</span></a>
-  <a class="navbar-brand mb-0 h1 offset-5" id="navbar" *ngIf="isLogin" href="#" routerLink="/postWall">ZoryaColect<span class="sr-only">(current)</span></a>
-  <div class="navbar offset-4" id="navbarNav">
+  <a class="navbar-brand mb-0 h1 offset-lg-6" id="navbar-home" *ngIf="!isLogin" href="#" routerLink="/">ZoryaColect<span class="sr-only">(current)</span></a>
+  <a class="navbar-brand mb-0 h1" id="navbar-post" *ngIf="isLogin" href="#" routerLink="/postWall">ZoryaColect<span class="sr-only">(current)</span></a>
+  <div class="navbar offset-lg-3" id="navbarNav">
     <ul class="navbar-nav mx-auto">
       <li class="nav-item" *ngIf="!isLogin">
         <a class="nav-link h6" href="#" routerLink='/login'>Iniciar sesión</a>

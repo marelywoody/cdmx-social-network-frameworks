@@ -13,3 +13,14 @@
   color: #efede6;
   background-color: #dd5347;
 }
+
+#button-login {
+  display: flex;
+  justify-content: center;
+  padding-top: 10px;
+}
+
+#button {
+  background-color:  rgba(184, 57, 216, 0.8);
+  border: 1px #760C7A solid;
+}

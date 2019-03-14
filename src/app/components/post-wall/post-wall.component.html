@@ -1,17 +1,20 @@
-<div *ngIf="isLogin" >
-  <div class="card col-6">
-    <form #postDescription="ngForm">
-      <div>
-        <textarea name="descriptionPost" id="description"  [(ngModel)]="post.descriptionPost" cols="70" rows="10"></textarea>
-      </div>
-      <button class="btn btn-primary offset-5" (click)="onSavePost(postDescription)">Postear</button>
-    </form>
-  </div>
+<div class="container" *ngIf="isLogin"  id="container-post">
+  <div class="row justify-content-end">
+    <div class="col-6">
+      <form #postDescription="ngForm">
+        <div>
+          <textarea name="post.descriptionPost" id="description"  [(ngModel)]="post.descriptionPost" cols="70" rows="10"></textarea>
+        </div>
+        <button class="btn btn-primary offset-5" (click)="onSavePost(postDescription)">Postear</button>
+      </form>
+    </div>
+</div>
 
-  <div *ngFor="let post of posts">
-    <strong>{{post.userName}}</strong>
+<div class="container">
+  <div class="row" *ngFor="let post of posts">
     <div class="card col-6">
-      {{post.postDescription}}
+      <strong>{{post.userName}}</strong>
+      <p>{{post.postDescription}}</p>
     </div>
   </div>
 </div>
